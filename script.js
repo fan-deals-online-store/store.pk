@@ -279,3 +279,17 @@
   initRevealAnimations();
   initReviewCounters();
 })();
+
+// ===== Meta Pixel - WhatsApp Lead Tracking =====
+document.addEventListener("DOMContentLoaded", function () {
+  const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
+
+  whatsappButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (typeof fbq !== "undefined") {
+        fbq("track", "Lead");
+        console.log("✅ Meta Lead Event Sent");
+      }
+    });
+  });
+});
