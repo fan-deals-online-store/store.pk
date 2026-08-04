@@ -269,6 +269,12 @@
   initSearch();
   initProductSliders();
   initProductWhatsAppButtons();
+
+  document.querySelectorAll('a[href*="wa.me"]').forEach(btn => {
+  btn.addEventListener('click', function() {
+    fbq('track', 'Lead');
+  });
+});
   initBackToTop();
   initRevealAnimations();
   initReviewCounters();
